@@ -1,5 +1,6 @@
 import api from "../utils/api";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [travels, setTravels] = useState([]);
@@ -16,6 +17,19 @@ function Home() {
     }
     fetchTravels();
   }, []);
-  return <h1> Titulo</h1>;
+  return (
+    <>
+      <h1> Titulo</h1>
+
+      {travels.map((currentCountry) => {
+        return (
+          <strong key={currentCountry.id}>
+            {currentCountry.attributes.country}
+          </strong>
+          //<img src={currentCountry.attributes.image} alt="foto da cidade" />
+        );
+      })}
+    </>
+  );
 }
 export default Home;
