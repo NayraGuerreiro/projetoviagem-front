@@ -23,15 +23,15 @@ function Home() {
 
       {travels.map((currentCountry) => {
         return (
-          <div>
+          <>
             <strong key={currentCountry.id}>
               {currentCountry.attributes.country}
             </strong>
-            {/* //<img src={currentCountry.attributes.image} alt="foto da cidade" /> */}
+            <img src={currentCountry.attributes.image} alt="foto da cidade" />
             <Link to="/form">
-              <button> Quero fazer essa viagem!</button>
+              <button>Quero fazer essa viagem!</button>
             </Link>
-          </div>
+          </>
         );
       })}
     </>
