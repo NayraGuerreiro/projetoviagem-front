@@ -19,19 +19,21 @@ function Home() {
   }, []);
   return (
     <>
-      <h1> Titulo</h1>
+      <h1> Qual o segredo da felicidade?</h1>
+      <h2>
+        Descubra viajando para os países com maior índice de felicidade do mundo
+      </h2>
 
       {travels.map((currentCountry) => {
         return (
-          <>
-            <strong key={currentCountry.id}>
-              {currentCountry.attributes.country}
-            </strong>
+          <div key={currentCountry.id}>
+            <h2>{currentCountry.attributes.country}</h2>
             <img src={currentCountry.attributes.image} alt="foto da cidade" />
+
             <Link to="/form">
               <button>Quero fazer essa viagem!</button>
             </Link>
-          </>
+          </div>
         );
       })}
     </>
