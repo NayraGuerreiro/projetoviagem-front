@@ -1,6 +1,7 @@
 import api from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../App.css";
 
 function Home() {
   const [travels, setTravels] = useState([]);
@@ -28,14 +29,31 @@ function Home() {
         return (
           <div key={currentCountry.id}>
             <h2>{currentCountry.attributes.country}</h2>
-            <img src={currentCountry.attributes.image} alt="foto da cidade" />
-            <p>{currentCountry.attributes.language}</p>
-            <p>{currentCountry.attributes.currency}</p>
-            <p>{currentCountry.attributes.population}</p>
-            <p>{currentCountry.attributes.borders}</p>
-            <p>{currentCountry.attributes.sightseeing}</p>
-            <p>{currentCountry.attributes.description}</p>
-
+            <img
+              className="style-img"
+              src={currentCountry.attributes.image}
+              alt="foto da cidade"
+            />
+            <p>
+              <strong>Idioma:</strong> {currentCountry.attributes.language}
+            </p>
+            <p>
+              <strong>Moeda:</strong> {currentCountry.attributes.currency}
+            </p>
+            <p>
+              <strong>População:</strong> {currentCountry.attributes.population}
+            </p>
+            <p>
+              <strong>Fronteiras:</strong> {currentCountry.attributes.borders}
+            </p>
+            <p>
+              <strong>Principais Pontos Turísticos: </strong>
+              {currentCountry.attributes.sightseeing}
+            </p>
+            <p>
+              <strong>Descrição:</strong>
+              {currentCountry.attributes.description}
+            </p>
             <Link to="/form">
               <button>Quero fazer essa viagem!</button>
             </Link>
