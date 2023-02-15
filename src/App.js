@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Form from "./pages/Form";
 import NavBar from "./pages/NavBar";
 import Footer from "./pages/Footer";
+import ViewForm from "./pages/ViewForm";
+import DetailsForm from "./pages/DetailsForm";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/viewForm" element={<ViewForm />} />
+        <Route path="/detailsForm/:formID" element={<DetailsForm />} />
       </Routes>
       <Footer />
     </div>
