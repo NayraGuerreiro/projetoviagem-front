@@ -1,12 +1,19 @@
+import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav>
-      <Link to="/"> Home |</Link>
-      <Link to="/form"> Programe sua Viagem |</Link>
-      <Link to="/viewForm"> Viagens Programadas</Link>
-    </nav>
+    <Nav fill variant="tabs" defaultActiveKey="/home">
+      <Nav.Item>
+        <Link to="/">Home</Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Link to="/form">Programe sua Viagem</Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Link to="/viewForm">Viagens Programadas</Link>
+      </Nav.Item>
+    </Nav>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Form from "./pages/Form";
+import Forms from "./pages/Form";
 import NavBar from "./pages/NavBar";
 import Footer from "./pages/Footer";
 import ViewForm from "./pages/ViewForm";
@@ -10,9 +10,10 @@ function App() {
   return (
     <div>
       <NavBar />
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/form" element={<Form />} />
+        <Route path="/form" element={<Forms />} />
         <Route path="/viewForm" element={<ViewForm />} />
         <Route path="/detailsForm/:formID" element={<DetailsForm />} />
       </Routes>
