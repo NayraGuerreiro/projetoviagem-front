@@ -19,7 +19,7 @@ function Home() {
   }, []);
   return (
     <>
-      <h1> Qual o segredo da felicidade?</h1>
+      <h1> Qual o segredo da felicidade? Conta aí!</h1>
       <h2>
         Descubra viajando para os países com maior índice de felicidade do mundo
       </h2>
