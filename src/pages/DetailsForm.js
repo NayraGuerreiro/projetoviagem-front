@@ -65,20 +65,36 @@ function DetailsForm() {
       {showEdit === false && (
         <div className="form-final">
           <h1>Sua Viagem Programada</h1>
-          <p>Nome:{form.nome}</p>
-          <p>Idade:{form.idade}</p>
-          <p>Destino:{form.destino}</p>
-          <p>Data:{form.quando}</p>
-          <p>Expectativas:{form.expectativas}</p>
+          <p>
+            <b>Nome:</b>
+            {form.nome}
+          </p>
+          <p>
+            <b>Idade:</b> {form.idade}
+          </p>
+          <p>
+            <b>Destino:</b>
+            {form.destino}
+          </p>
+          <p>
+            <b>Data:</b>
+            {form.quando}
+          </p>
+          <p>
+            <b>Expectativas:</b>
+            {form.expectativas}
+          </p>
           <button onClick={handleClick}>Editar</button>
         </div>
       )}
 
       {showEdit === true && (
-        <div className="form-edit">
-          <p>Edite aqui sua viagem</p>
+        <div>
+          <h2>Edite aqui sua viagem</h2>
           <form>
-            <label htmlFor="input-form-nome">Nome:</label>
+            <label htmlFor="input-form-nome">
+              <b>Nome:</b>
+            </label>
             <input
               id="input-form-nome"
               name="nome"
@@ -86,7 +102,9 @@ function DetailsForm() {
               onChange={handleChange}
             />
 
-            <label htmlFor="input-form-idade">Idade:</label>
+            <label htmlFor="input-form-idade">
+              <b>Idade:</b>
+            </label>
             <input
               id="input-form-idade"
               type="number"
@@ -95,7 +113,9 @@ function DetailsForm() {
               onChange={handleChange}
             />
 
-            <label htmlFor="input-form-destino">Destino:</label>
+            <label htmlFor="input-form-destino">
+              <b>Destino:</b>
+            </label>
             <input
               id="input-form-destino"
               name="destino"
@@ -103,7 +123,9 @@ function DetailsForm() {
               onChange={handleChange}
             />
 
-            <label htmlFor="input-form-quando">Data:</label>
+            <label htmlFor="input-form-quando">
+              <b>Data:</b>
+            </label>
             <input
               id="input-form-quando"
               type="date"
@@ -112,7 +134,9 @@ function DetailsForm() {
               onChange={handleChange}
             />
 
-            <label htmlFor="input-form-expectativas">Expectativas:</label>
+            <label htmlFor="input-form-expectativas">
+              <b>Expectativas:</b>
+            </label>
             <input
               id="input-form-expectativas"
               name="expectativas"
@@ -123,6 +147,7 @@ function DetailsForm() {
             <button type="submit" onClick={handleSubmit}>
               Salvar
             </button>
+
             <button onClick={handleDelete}>Deletar</button>
           </form>
         </div>

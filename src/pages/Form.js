@@ -33,18 +33,20 @@ function Form() {
 
   return (
     <div>
-      <h1>Planeje sua Viagem</h1>
-
+      <h2> Programe sua Viagem</h2>
       <form>
-        <label htmlFor="input-form-nome">Nome:</label>
+        <label htmlFor="input-form-nome">
+          <b>Nome:</b>
+        </label>
         <input
           id="input-form-nome"
           name="nome"
           value={form.nome}
           onChange={handleChange}
         />
-
-        <label htmlFor="input-form-idade">Idade:</label>
+        <label htmlFor="input-form-idade">
+          <b>Idade:</b>
+        </label>
         <input
           id="input-form-idade"
           type="number"
@@ -52,16 +54,18 @@ function Form() {
           value={form.idade}
           onChange={handleChange}
         />
-
-        <label htmlFor="input-form-destino">Destino:</label>
+        <label htmlFor="input-form-destino">
+          <b>Destino:</b>
+        </label>
         <input
           id="input-form-destino"
           name="destino"
           value={form.destino}
           onChange={handleChange}
         />
-
-        <label htmlFor="input-form-quando">Data:</label>
+        <label htmlFor="input-form-quando">
+          <b>Data:</b>
+        </label>
         <input
           id="input-form-quando"
           type="date"
@@ -70,7 +74,9 @@ function Form() {
           onChange={handleChange}
         />
 
-        <label htmlFor="input-form-expectativas">Expectativas:</label>
+        <label htmlFor="input-form-expectativas">
+          <b>Expectativas:</b>
+        </label>
         <input
           id="input-form-expectativas"
           name="expectativas"
@@ -78,6 +84,7 @@ function Form() {
           onChange={handleChange}
         />
         <Link>
+          <br></br>
           <button type="submit" onClick={handleSubmit}>
             Salvar
           </button>

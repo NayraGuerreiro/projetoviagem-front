@@ -1,7 +1,6 @@
 import api from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../App.css";
 
 function Home() {
   const [travels, setTravels] = useState([]);
@@ -29,11 +28,7 @@ function Home() {
         return (
           <div key={currentCountry.id}>
             <h2>{currentCountry.attributes.country}</h2>
-            <img
-              className="style-img"
-              src={currentCountry.attributes.image}
-              alt="foto da cidade"
-            />
+            <img src={currentCountry.attributes.image} alt="foto da cidade" />
             <p>
               <strong>Idioma:</strong> {currentCountry.attributes.language}
             </p>
