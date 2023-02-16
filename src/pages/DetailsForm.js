@@ -1,3 +1,4 @@
+import Form from "react-bootstrap/Form";
 import api from "../utils/api";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -59,31 +60,49 @@ function DetailsForm() {
       console.log(err);
     }
   }
-
+  console.log(form);
   return (
     <div>
       {showEdit === false && (
         <div className="form-final">
           <h1>Sua Viagem Programada</h1>
-          <p>
-            <b>Nome:</b>
-            {form.nome}
-          </p>
-          <p>
-            <b>Idade:</b> {form.idade}
-          </p>
-          <p>
-            <b>Destino:</b>
-            {form.destino}
-          </p>
-          <p>
-            <b>Data:</b>
-            {form.quando}
-          </p>
-          <p>
-            <b>Expectativas:</b>
-            {form.expectativas}
-          </p>
+
+          <Form>
+            <Form.Group controlId="formnome">
+              <Form.Label className="mb-3">
+                <b>Nome:</b>
+              </Form.Label>
+              <Form.Control value={form.nome} />
+            </Form.Group>
+
+            <Form.Group controlId="formidade">
+              <Form.Label className="mb-3">
+                <b>Idade:</b>
+              </Form.Label>
+              <Form.Control value={form.idade} />
+            </Form.Group>
+
+            <Form.Group controlId="formdestino">
+              <Form.Label className="mb-3">
+                <b>Destino:</b>
+              </Form.Label>
+              <Form.Control value={form.destino} />
+            </Form.Group>
+
+            <Form.Group controlId="formdata">
+              <Form.Label className="mb-3">
+                <b>Data:</b>
+              </Form.Label>
+              <Form.Control value={form.quando} />
+            </Form.Group>
+
+            <Form.Group controlId="formexpectativas">
+              <Form.Label className="mb-3">
+                <b>Expectativas:</b>
+              </Form.Label>
+              <Form.Control value={form.expectativas} />
+            </Form.Group>
+          </Form>
           <button onClick={handleClick}>Editar</button>
         </div>
       )}
@@ -91,65 +110,52 @@ function DetailsForm() {
       {showEdit === true && (
         <div>
           <h2>Edite aqui sua viagem</h2>
-          <form>
-            <label htmlFor="input-form-nome">
-              <b>Nome:</b>
-            </label>
-            <input
-              id="input-form-nome"
-              name="nome"
-              value={formEdit.nome}
-              onChange={handleChange}
-            />
 
-            <label htmlFor="input-form-idade">
-              <b>Idade:</b>
-            </label>
-            <input
-              id="input-form-idade"
-              type="number"
-              name="idade"
-              value={formEdit.idade}
-              onChange={handleChange}
-            />
+          <Form>
+            <Form.Group controlId="form-nome">
+              <Form.Label className="input-form-nome">
+                <b>Nome:</b>
+              </Form.Label>
+              <Form.Control value={formEdit.nome} onChange={handleChange} />
+            </Form.Group>
 
-            <label htmlFor="input-form-destino">
-              <b>Destino:</b>
-            </label>
-            <input
-              id="input-form-destino"
-              name="destino"
-              value={formEdit.destino}
-              onChange={handleChange}
-            />
+            <Form.Group controlId="form-idade">
+              <Form.Label className="input-form-idade">
+                <b>Idade:</b>
+              </Form.Label>
+              <Form.Control value={formEdit.idade} onChange={handleChange} />
+            </Form.Group>
 
-            <label htmlFor="input-form-quando">
-              <b>Data:</b>
-            </label>
-            <input
-              id="input-form-quando"
-              type="date"
-              name="quando"
-              value={formEdit.quando}
-              onChange={handleChange}
-            />
+            <Form.Group controlId="form-destino">
+              <Form.Label className="input-form-destino">
+                <b>Destino:</b>
+              </Form.Label>
+              <Form.Control value={formEdit.destino} onChange={handleChange} />
+            </Form.Group>
 
-            <label htmlFor="input-form-expectativas">
-              <b>Expectativas:</b>
-            </label>
-            <input
-              id="input-form-expectativas"
-              name="expectativas"
-              value={formEdit.expectativas}
-              onChange={handleChange}
-            />
+            <Form.Group controlId="form-data">
+              <Form.Label className="input-form-quando">
+                <b>Data:</b>
+              </Form.Label>
+              <Form.Control value={formEdit.quando} onChange={handleChange} />
+            </Form.Group>
 
-            <button type="submit" onClick={handleSubmit}>
-              Salvar
-            </button>
+            <Form.Group controlId="form-expectativas">
+              <Form.Label className="input-form-expectativas">
+                <b>Expectativas:</b>
+              </Form.Label>
+              <Form.Control
+                value={formEdit.expectativas}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Form>
 
-            <button onClick={handleDelete}>Deletar</button>
-          </form>
+          <button type="submit" onClick={handleSubmit}>
+            Salvar
+          </button>
+
+          <button onClick={handleDelete}>Deletar</button>
         </div>
       )}
     </div>

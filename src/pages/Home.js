@@ -1,6 +1,10 @@
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import api from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 function Home() {
   const [travels, setTravels] = useState([]);
@@ -19,43 +23,64 @@ function Home() {
   }, []);
   return (
     <>
-      <h1> Qual o segredo da felicidade? Conta aí!</h1>
+      <h1> Qual o segredo da felicidade?</h1>
       <h2>
         Descubra viajando para os países com maior índice de felicidade do mundo
       </h2>
 
-      {travels.map((currentCountry) => {
-        return (
-          <div key={currentCountry.id}>
-            <h2>{currentCountry.attributes.country}</h2>
-            <img src={currentCountry.attributes.image} alt="foto da cidade" />
-            <p>
-              <strong>Idioma:</strong> {currentCountry.attributes.language}
-            </p>
-            <p>
-              <strong>Moeda:</strong> {currentCountry.attributes.currency}
-            </p>
-            <p>
-              <strong>População:</strong> {currentCountry.attributes.population}
-            </p>
-            <p>
-              <strong>Fronteiras:</strong> {currentCountry.attributes.borders}
-            </p>
-            <p>
-              <strong>Principais Pontos Turísticos: </strong>
-              {currentCountry.attributes.sightseeing}
-            </p>
-            <p>
-              <strong>Descrição:</strong>
-              {currentCountry.attributes.description}
-            </p>
-            <Link to="/form">
-              <button>Quero fazer essa viagem!</button>
-            </Link>
-          </div>
-        );
-      })}
+      <Container>
+        <Row xs={1} md={2} className="g-4">
+          {travels.map((currentCountry) => {
+            return (
+              <Col key={currentCountry.id}>
+                <Card>
+                  <Card.Img
+                    src={currentCountry.attributes.image}
+                    alt="foto da cidade"
+                    variant="top"
+                  />
+                  <Card.Body>
+                    <Card.Title>{currentCountry.attributes.country}</Card.Title>
+                    <Card.Text>
+                      <p>
+                        <strong>Idioma:</strong>{" "}
+                        {currentCountry.attributes.language}
+                      </p>
+                      <p>
+                        <strong>Moeda:</strong>{" "}
+                        {currentCountry.attributes.currency}
+                      </p>
+                      <p>
+                        <strong>População:</strong>{" "}
+                        {currentCountry.attributes.population}
+                      </p>
+                      <p>
+                        <strong>Fronteiras:</strong>{" "}
+                        {currentCountry.attributes.borders}
+                      </p>
+                      <p>
+                        <strong>Principais Pontos Turísticos: </strong>
+                        {currentCountry.attributes.sightseeing}
+                      </p>
+                      <p>
+                        <strong>Descrição:</strong>
+                        {currentCountry.attributes.description}
+                      </p>
+                    </Card.Text>
+                  </Card.Body>
+                  <Card.Footer>
+                    <Link to="/form">
+                      <button>Quero fazer essa viagem!</button>
+                    </Link>
+                  </Card.Footer>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
     </>
   );
 }
+
 export default Home;
