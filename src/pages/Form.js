@@ -1,8 +1,8 @@
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import api from "../utils/api";
 import { useNavigate } from "react-router-dom";
+import Card from "antd/es/card/Card";
 
 function Forms() {
   const [form, setForm] = useState({
@@ -34,75 +34,102 @@ function Forms() {
 
   return (
     <>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>Programe sua Viagem</h2>
+      <div>
+        <h2 className="style-h1">Programe sua Viagem</h2>
+        <div class="container">
+          <div class="row">
+            <Card
+              class="col-md-6"
+              style={{
+                margin: "0 30%",
+                width: "500px",
+                backgroundColor: "#f0f8ff",
+              }}
+              className="teste"
+            >
+              <Form style={{ fontFamily: '"Quicksand", sans-serif;' }}>
+                <Form.Group controlId="form-name">
+                  <Form.Label className="mb-3">
+                    <b>Nome:</b>
+                  </Form.Label>
+                  <Form.Control
+                    id="input-form-nome"
+                    name="nome"
+                    value={form.nome}
+                    onChange={handleChange}
+                  />
+                  <br></br>
+                </Form.Group>
+                <Form.Group controlId="form-age">
+                  <Form.Label className="input-form-idade">
+                    <b>Idade:</b>
+                  </Form.Label>
+                  <Form.Control
+                    id="input-form-idade"
+                    type="number"
+                    name="idade"
+                    value={form.idade}
+                    onChange={handleChange}
+                  />
+                  <br></br>
+                </Form.Group>
+                <Form.Group controlId="form-destiny">
+                  <Form.Label className="input-form-destino">
+                    <b>Destino:</b>
+                  </Form.Label>
+                  <Form.Control
+                    id="input-form-destino"
+                    name="destino"
+                    value={form.destino}
+                    onChange={handleChange}
+                  />
+                  <br></br>
+                </Form.Group>
+                <Form.Group controlId="from-when">
+                  <Form.Label className="input-form-quando">
+                    <b>Data:</b>
+                  </Form.Label>
+                  <Form.Control
+                    id="input-form-quando"
+                    type="date"
+                    name="quando"
+                    value={form.quando}
+                    onChange={handleChange}
+                  />
+                  <br></br>
+                </Form.Group>
+                <Form.Group controlId="form-expec">
+                  <Form.Label className="input-form-expectativas">
+                    <b>Expectativas:</b>
+                  </Form.Label>
+                  <Form.Control
+                    id="input-form-expectativas"
+                    name="expectativas"
+                    value={form.expectativas}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
 
-            <Form>
-              <Form.Group controlId="form-name">
-                <Form.Label className="mb-3">
-                  <b>Nome:</b>
-                </Form.Label>
-                <Form.Control
-                  id="input-form-nome"
-                  name="nome"
-                  value={form.nome}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="form-age">
-                <Form.Label className="input-form-idade">
-                  <b>Idade:</b>
-                </Form.Label>
-                <Form.Control
-                  id="input-form-idade"
-                  type="number"
-                  name="idade"
-                  value={form.idade}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="form-destiny">
-                <Form.Label className="input-form-destino">
-                  <b>Destino:</b>
-                </Form.Label>
-                <Form.Control
-                  id="input-form-destino"
-                  name="destino"
-                  value={form.destino}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="from-when">
-                <Form.Label className="input-form-quando">
-                  <b>Data:</b>
-                </Form.Label>
-                <Form.Control
-                  id="input-form-quando"
-                  type="date"
-                  name="quando"
-                  value={form.quando}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="form-expec">
-                <Form.Label className="input-form-expectativas">
-                  <b>Expectativas:</b>
-                </Form.Label>
-                <Form.Control
-                  id="input-form-expectativas"
-                  name="expectativas"
-                  value={form.expectativas}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-
-              <br></br>
-              <button type="submit" onClick={handleSubmit}>
-                Salvar
-              </button>
-            </Form>
+                <br></br>
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  style={{
+                    fontFamily: '"Quicksand", sans-serif',
+                    height: "50px",
+                    width: "100px",
+                    border: "none",
+                    background: "transparent",
+                    color: "#0d6efd",
+                    marginLeft: "150px",
+                    fontSize: "15px",
+                    fontWeight: "600",
+                  }}
+                >
+                  Salvar
+                </button>
+              </Form>
+            </Card>
           </div>
         </div>
       </div>

@@ -3,17 +3,34 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <Nav fill variant="tabs" defaultActiveKey="/home">
-      <Nav.Item>
-        <Link to="/">Home</Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Link to="/form">Programe sua Viagem</Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Link to="/viewForm">Viagens Programadas</Link>
-      </Nav.Item>
-    </Nav>
+    <div className="nav">
+      <Nav fill variant="tabs" defaultActiveKey="/home" className="nav-style">
+        <Nav.Item>
+          <Link
+            to="/"
+            style={{ color: "black", fontSize: "20px", textDecoration: "none" }}
+          >
+            Home
+          </Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Link
+            to="/form"
+            style={{ color: "black", fontSize: "20px", textDecoration: "none" }}
+          >
+            Programe sua Viagem
+          </Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Link
+            to="/viewForm"
+            style={{ color: "black", fontSize: "20px", textDecoration: "none" }}
+          >
+            Viagens Programadas
+          </Link>
+        </Nav.Item>
+      </Nav>
+    </div>
   );
 }
 
