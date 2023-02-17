@@ -5,7 +5,7 @@ import api from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
-
+import "../App.css";
 function Home() {
   const [travels, setTravels] = useState([]);
   console.log(travels);
@@ -23,9 +23,10 @@ function Home() {
   }, []);
   return (
     <>
-      <h1> Qual o segredo da felicidade?</h1>
-      <h2>
-        Descubra viajando para os países com maior índice de felicidade do mundo
+      <h1 className="style-h1"> Qual o segredo da felicidade?</h1>
+      <h2 className="style-h2">
+        Descubra viajando para os países com maior índice de felicidade do
+        mundo!
       </h2>
 
       <Container>
@@ -33,15 +34,20 @@ function Home() {
           {travels.map((currentCountry) => {
             return (
               <Col key={currentCountry.id}>
-                <Card>
+                <Card className="style-cd">
                   <Card.Img
+                    className="syle-img"
                     src={currentCountry.attributes.image}
                     alt="foto da cidade"
                     variant="top"
                   />
                   <Card.Body>
-                    <Card.Title>{currentCountry.attributes.country}</Card.Title>
-                    <Card.Text>
+                    <Card.Title className="style-country">
+                      {currentCountry.attributes.country}
+                    </Card.Title>
+                    <Card.Text className="style-card">
+                      {" "}
+                      <hr></hr>
                       <p>
                         <strong>Idioma:</strong>{" "}
                         {currentCountry.attributes.language}
@@ -68,9 +74,22 @@ function Home() {
                       </p>
                     </Card.Text>
                   </Card.Body>
-                  <Card.Footer>
+                  <Card.Footer style={{ alignself: "center" }}>
                     <Link to="/form">
-                      <button>Quero fazer essa viagem!</button>
+                      <button
+                        style={{
+                          fontFamily: '"Quicksand", sans-serif',
+                          border: "none",
+                          background: "transparent",
+                          color: "#0d6efd",
+                          marginLeft: "180px",
+                          fontSize: "15px",
+                          fontWeight: "600",
+                          height: "50px",
+                        }}
+                      >
+                        Quero fazer essa viagem!
+                      </button>
                     </Link>
                   </Card.Footer>
                 </Card>

@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import api from "../utils/api";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Card from "antd/es/card/Card";
 
 function DetailsForm() {
   const params = useParams();
@@ -44,6 +45,7 @@ function DetailsForm() {
       await api.put(`/forms/${params.formID}`, infosForAPI);
       setReload(!reload);
       setShowEdit(false);
+      navigate("/viewForm");
     } catch (err) {
       console.log(err);
     }
@@ -65,97 +67,178 @@ function DetailsForm() {
     <div>
       {showEdit === false && (
         <div className="form-final">
-          <h1>Sua Viagem Programada</h1>
+          <h1 className="style-h1">Sua Viagem Programada</h1>
+          <Card
+            className="viagem-programada"
+            style={{
+              width: "500",
+              margin: "0 35%",
+              fontFamily: "Quicksand, sans-serif",
+              backgroundColor: "#f0f8ff",
+            }}
+          >
+            <Form>
+              <Form.Group controlId="formnome">
+                <Form.Label className="mb-3">
+                  <b>Nome:</b>
+                </Form.Label>
+                <Form.Control value={form.nome} />
+              </Form.Group>
+              <br></br>
 
-          <Form>
-            <Form.Group controlId="formnome">
-              <Form.Label className="mb-3">
-                <b>Nome:</b>
-              </Form.Label>
-              <Form.Control value={form.nome} />
-            </Form.Group>
+              <Form.Group controlId="formidade">
+                <Form.Label className="mb-3">
+                  <b>Idade:</b>
+                </Form.Label>
+                <Form.Control value={form.idade} />
+              </Form.Group>
+              <br></br>
 
-            <Form.Group controlId="formidade">
-              <Form.Label className="mb-3">
-                <b>Idade:</b>
-              </Form.Label>
-              <Form.Control value={form.idade} />
-            </Form.Group>
+              <Form.Group controlId="formdestino">
+                <Form.Label className="mb-3">
+                  <b>Destino:</b>
+                </Form.Label>
+                <Form.Control value={form.destino} />
+              </Form.Group>
+              <br></br>
 
-            <Form.Group controlId="formdestino">
-              <Form.Label className="mb-3">
-                <b>Destino:</b>
-              </Form.Label>
-              <Form.Control value={form.destino} />
-            </Form.Group>
+              <Form.Group controlId="formdata">
+                <Form.Label className="mb-3">
+                  <b>Data:</b>
+                </Form.Label>
+                <Form.Control value={form.quando} />
+              </Form.Group>
+              <br></br>
 
-            <Form.Group controlId="formdata">
-              <Form.Label className="mb-3">
-                <b>Data:</b>
-              </Form.Label>
-              <Form.Control value={form.quando} />
-            </Form.Group>
-
-            <Form.Group controlId="formexpectativas">
-              <Form.Label className="mb-3">
-                <b>Expectativas:</b>
-              </Form.Label>
-              <Form.Control value={form.expectativas} />
-            </Form.Group>
-          </Form>
-          <button onClick={handleClick}>Editar</button>
+              <Form.Group controlId="formexpectativas">
+                <Form.Label className="mb-3">
+                  <b>Expectativas:</b>
+                </Form.Label>
+                <Form.Control value={form.expectativas} />
+              </Form.Group>
+            </Form>
+            <br></br>
+            <button
+              onClick={handleClick}
+              style={{
+                fontFamily: "Quicksand, sans-serif",
+                border: "none",
+                background: "transparent",
+                color: "#0d6efd",
+                fontWeight: "600",
+                fontSize: "15px",
+                marginLeft: "200px",
+                width: "100px",
+              }}
+            >
+              Editar
+            </button>
+          </Card>
         </div>
       )}
 
       {showEdit === true && (
         <div>
-          <h2>Edite aqui sua viagem</h2>
+          <h2 className="style-h1">Edite aqui sua viagem</h2>
+          <Card
+            className="teste"
+            style={{
+              width: "500",
+              margin: "0 35%",
+              backgroundColor: "#f0f8ff",
+              fontFamily: "Quicksand, sans-serif",
+            }}
+          >
+            <Form>
+              <Form.Group controlId="form-nome">
+                <Form.Label className="input-form-nome">
+                  <b>Nome:</b>
+                </Form.Label>
+                <Form.Control
+                  value={formEdit.nome}
+                  onChange={handleChange}
+                  name="nome"
+                />
+              </Form.Group>
 
-          <Form>
-            <Form.Group controlId="form-nome">
-              <Form.Label className="input-form-nome">
-                <b>Nome:</b>
-              </Form.Label>
-              <Form.Control value={formEdit.nome} onChange={handleChange} />
-            </Form.Group>
+              <Form.Group controlId="form-idade">
+                <Form.Label className="input-form-idade">
+                  <b>Idade:</b>
+                </Form.Label>
+                <Form.Control
+                  value={formEdit.idade}
+                  onChange={handleChange}
+                  name="idade"
+                />
+              </Form.Group>
 
-            <Form.Group controlId="form-idade">
-              <Form.Label className="input-form-idade">
-                <b>Idade:</b>
-              </Form.Label>
-              <Form.Control value={formEdit.idade} onChange={handleChange} />
-            </Form.Group>
+              <Form.Group controlId="form-destino">
+                <Form.Label className="input-form-destino">
+                  <b>Destino:</b>
+                </Form.Label>
+                <Form.Control
+                  value={formEdit.destino}
+                  onChange={handleChange}
+                  name="destino"
+                />
+              </Form.Group>
 
-            <Form.Group controlId="form-destino">
-              <Form.Label className="input-form-destino">
-                <b>Destino:</b>
-              </Form.Label>
-              <Form.Control value={formEdit.destino} onChange={handleChange} />
-            </Form.Group>
+              <Form.Group controlId="form-data">
+                <Form.Label className="input-form-quando">
+                  <b>Data:</b>
+                </Form.Label>
+                <Form.Control
+                  value={formEdit.quando}
+                  onChange={handleChange}
+                  name="quando"
+                />
+              </Form.Group>
 
-            <Form.Group controlId="form-data">
-              <Form.Label className="input-form-quando">
-                <b>Data:</b>
-              </Form.Label>
-              <Form.Control value={formEdit.quando} onChange={handleChange} />
-            </Form.Group>
+              <Form.Group controlId="form-expectativas">
+                <Form.Label className="input-form-expectativas">
+                  <b>Expectativas:</b>
+                </Form.Label>
+                <Form.Control
+                  value={formEdit.expectativas}
+                  onChange={handleChange}
+                  name="expectativas"
+                />
+              </Form.Group>
+            </Form>
+            <br></br>
 
-            <Form.Group controlId="form-expectativas">
-              <Form.Label className="input-form-expectativas">
-                <b>Expectativas:</b>
-              </Form.Label>
-              <Form.Control
-                value={formEdit.expectativas}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Form>
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              style={{
+                marginLeft: "200px",
+                marginRight: "10px",
+                border: "none",
+                background: "transparent",
+                color: "#0d6efd",
+                fontWeight: "600",
+                height: "50px",
+                fontSize: "15px",
+              }}
+            >
+              Salvar
+            </button>
 
-          <button type="submit" onClick={handleSubmit}>
-            Salvar
-          </button>
-
-          <button onClick={handleDelete}>Deletar</button>
+            <button
+              onClick={handleDelete}
+              style={{
+                marginRight: "10px",
+                border: "none",
+                background: "transparent",
+                color: "#0d6efd",
+                fontWeight: "600",
+                height: "50px",
+                fontSize: "15px",
+              }}
+            >
+              Deletar
+            </button>
+          </Card>
         </div>
       )}
     </div>
